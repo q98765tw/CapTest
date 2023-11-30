@@ -22,6 +22,7 @@ public class YourService
 
         // 使用相同的主题发布相同的事件消息
         await _capPublisher.PublishAsync("same_event_topic", message);
+        await _capPublisher.PublishAsync("Two_topic", message);
     }
 }
 

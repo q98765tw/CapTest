@@ -8,6 +8,6 @@ public class YourEventHandlerTwo : ICapSubscribe
     public void HandleTwo(YourEvent @event)
     {
         // 处理事件逻辑
-        Console.WriteLine($"Two user event: {@event.Message}");
+        Console.WriteLine($"Three user event: {@event.Message}");
     }
 }
