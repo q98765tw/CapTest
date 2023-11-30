@@ -18,10 +18,10 @@ public class YourService
 
     public async Task PublishEvent()
     {
-        var yourEvent = new YourEvent { Message = "Hello, CAP!" };
-        // 发布事件
-        await _capPublisher.PublishAsync("event", yourEvent);
-        await _capPublisher.PublishAsync("event2", yourEvent);
+        var message = new YourEvent { Message = "Hello, CAP!" };
+
+        // 使用相同的主题发布相同的事件消息
+        await _capPublisher.PublishAsync("same_event_topic", message);
     }
 }
 

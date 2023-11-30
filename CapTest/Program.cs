@@ -9,14 +9,20 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddCap(x =>
 {
     x.UseInMemoryStorage();
     x.UseInMemoryMessageQueue();
 });
+builder.Services.AddLogging(builder =>
+{
+    builder.AddConsole(); // 将日志输出到控制台
+    
+});
 // 注册CAP的事件处理程序
 builder.Services.AddTransient<YourEventHandler>(); // 替换为你的事件处理程序
-builder.Services.AddTransient<YourEventHandler2>(); // 替换为你的事件处理程序
+builder.Services.AddTransient<YourEventHandlerTwo>(); // 替换为你的事件处理程序
 builder.Services.AddTransient<YourService>();
 
 var app = builder.Build();

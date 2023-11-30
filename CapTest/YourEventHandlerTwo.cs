@@ -2,13 +2,12 @@
 
 namespace CapTest;
 
-public class YourEventHandler2 : ICapSubscribe
+public class YourEventHandlerTwo : ICapSubscribe
 {
-    [CapSubscribe("event2")]
-    public void Handle2(YourEvent @event)
+    [CapSubscribe("same_event_topic")]
+    public void HandleTwo(YourEvent @event)
     {
         // 处理事件逻辑
         Console.WriteLine($"Two user event: {@event.Message}");
     }
 }
-

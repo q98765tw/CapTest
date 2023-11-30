@@ -1,15 +1,16 @@
 ﻿using DotNetCore.CAP;
 
-namespace CapTest;
-
-
-public class YourEventHandler : ICapSubscribe
+namespace CapTest
 {
-    [CapSubscribe("event")]
-    public void Handle(YourEvent @event)
+    public class YourEventHandler : ICapSubscribe
     {
-        // 处理事件逻辑
-        Console.WriteLine($"One user event: {@event.Message}");
+        [CapSubscribe("same_event_topic")]
+        public void Handle(YourEvent @event)
+        {
+            // 处理事件逻辑
+            Console.WriteLine($"One user event: {@event.Message}");
+        }
     }
-}
 
+    
+}
