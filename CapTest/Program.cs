@@ -16,6 +16,7 @@ builder.Services.AddCap(x =>
 });
 // 注册CAP的事件处理程序
 builder.Services.AddTransient<YourEventHandler>(); // 替换为你的事件处理程序
+builder.Services.AddTransient<YourEventHandler2>(); // 替换为你的事件处理程序
 builder.Services.AddTransient<YourService>();
 
 var app = builder.Build();

@@ -1,6 +1,12 @@
 ﻿using DotNetCore.CAP;
 
 namespace CapTest;
+// 创建一个事件类
+public class YourEvent
+{
+    public string Message { get; set; }
+    // 其他事件属性
+}
 public class YourService
 {
     private readonly ICapPublisher _capPublisher;
@@ -13,9 +19,9 @@ public class YourService
     public async Task PublishEvent()
     {
         var yourEvent = new YourEvent { Message = "Hello, CAP!" };
-
         // 发布事件
-        await _capPublisher.PublishAsync("your-event-name", yourEvent);
+        await _capPublisher.PublishAsync("event", yourEvent);
+        await _capPublisher.PublishAsync("event2", yourEvent);
     }
 }
 
