@@ -1,5 +1,4 @@
 ﻿using CapTest;
-using Savorboard.CAP.InMemoryMessageQueue;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +11,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCap(x =>
 {
     x.UseInMemoryStorage();
-    x.UseInMemoryMessageQueue();
-    x.UseRabbitMQ("amqp://username:password@rabbitmq_host:5672/virtual_host");
+    x.UseRabbitMQ("amqp://your_username:your_password@localhost:5672"); // 修改為你的 RabbitMQ 連接資訊
+    x.UseDashboard();   
 });
 // 注册CAP的事件处理程序
 builder.Services.AddTransient<YourEventHandler>(); // 替换为你的事件处理程序
