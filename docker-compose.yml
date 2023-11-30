@@ -1,0 +1,21 @@
+﻿version: '3.4'
+
+services:
+  captest:
+    image: ${DOCKER_REGISTRY-}captest
+    build:
+      context: .
+      dockerfile: CapTest/Dockerfile
+  rabbitmq:
+    image: rabbitmq:3.11.26 # RabbitMQ 版本
+    ports:
+      - "5672:5672" # RabbitMQ 默认端口
+      - "15672:15672" # RabbitMQ 管理界面端口
+    hostname: rabbitmq # 主机名
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "unique-erlang-cookie" # Erlang cookie
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq # 持久化数据
+volumes:
+  rabbitmq_data:
+    driver: local

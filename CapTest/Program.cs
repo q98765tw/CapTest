@@ -13,6 +13,7 @@ builder.Services.AddCap(x =>
 {
     x.UseInMemoryStorage();
     x.UseInMemoryMessageQueue();
+    x.UseRabbitMQ("amqp://username:password@rabbitmq_host:5672/virtual_host");
 });
 // 注册CAP的事件处理程序
 builder.Services.AddTransient<YourEventHandler>(); // 替换为你的事件处理程序
