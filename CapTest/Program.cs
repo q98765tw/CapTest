@@ -14,6 +14,7 @@ builder.Services.AddCap(x =>
 {
     x.UseInMemoryStorage();
     x.UseInMemoryMessageQueue();
+    x.UseDashboard();
 });
 builder.Services.AddLogging(builder =>
 {
