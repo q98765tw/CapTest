@@ -1,4 +1,5 @@
-﻿using DotNetCore.CAP;
+﻿using CapTest.Services;
+using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CapTest.Controllers
@@ -7,7 +8,7 @@ namespace CapTest.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        
+
         private readonly YourService _yourService;
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -22,7 +23,7 @@ namespace CapTest.Controllers
         {
             // 在控制器中调用服务层来发布事件
             await _yourService.PublishEvent();
-
+            await _yourService.PublishEventTwo();   
             return Ok("Event published successfully");
         }
     }

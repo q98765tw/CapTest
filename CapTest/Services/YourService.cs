@@ -1,6 +1,7 @@
 ﻿using DotNetCore.CAP;
+using DotNetCore.CAP.Messages;
 
-namespace CapTest;
+namespace CapTest.Services;
 // 创建一个事件类
 public class YourEvent
 {
@@ -22,6 +23,10 @@ public class YourService
 
         // 使用相同的主题发布相同的事件消息
         await _capPublisher.PublishAsync("same_event_topic", message);
+       
+    }
+    public async Task PublishEventTwo() {
+        var message = new YourEvent { Message = "Hello, Two!" };
         await _capPublisher.PublishAsync("Two_topic", message);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CapTest;
+using CapTest.Services;
 using Savorboard.CAP.InMemoryMessageQueue;
 
 var builder = WebApplication.CreateBuilder(args);
