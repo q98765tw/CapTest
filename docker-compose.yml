@@ -7,15 +7,17 @@ services:
       context: .
       dockerfile: CapTest/Dockerfile
   rabbitmq:
-    image: rabbitmq:3.11.26 # RabbitMQ 版本
+    image: rabbitmq:3.8-management # RabbitMQ 版本
     ports:
       - "5672:5672" # RabbitMQ 默认端口
-      - "15672:15672" # RabbitMQ 管理界面端口
+      - "80:15672" # RabbitMQ 管理界面端口
     hostname: rabbitmq # 主机名
+    container_name: "wycs_rabbitmq3.8"
+    restart: always
     environment:
       RABBITMQ_ERLANG_COOKIE: "unique-erlang-cookie" # Erlang cookie
-      RABBITMQ_DEFAULT_USER: "your_username" # 設置自定義用戶名
-      RABBITMQ_DEFAULT_PASS: "your_password" # 設置自定義密碼
+      RABBITMQ_DEFAULT_USER: "123123" # 設置自定義用戶名
+      RABBITMQ_DEFAULT_PASS: "123123" # 設置自定義密碼
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq # 持久化数据
 volumes:

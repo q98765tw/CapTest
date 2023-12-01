@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCap(x =>
 {
     x.UseInMemoryStorage();
-    x.UseRabbitMQ("amqp://your_username:your_password@localhost:5672"); // 修改為你的 RabbitMQ 連接資訊
+    x.UseRabbitMQ("amqp://root:123123@localhost:5672"); // 修改為你的 RabbitMQ 連接資訊
     x.UseDashboard();   
 });
 // 注册CAP的事件处理程序
